@@ -1,0 +1,74 @@
+/* body {
+    background-image: url('imageen.png');
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.login-container h2 {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: #840a0a;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.btn-warning {
+    background-color: #4CAF50; /* Verde para el botón */
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-warning:hover {
+    background-color: #45a049; /* Verde más oscuro al pasar el ratón */
+}
+
+.form-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.register-link {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}

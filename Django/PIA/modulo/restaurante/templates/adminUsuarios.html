@@ -1,0 +1,31 @@
+<!-- Importar el diseño de la plantilla -->
+{% extends "./plantilla.html" %}
+
+<!-- Cambiar titulo a la pestaña de navegación -->
+{% block title %} Usuarios {% endblock %}
+
+<!-- Contenido individual -->
+{% block body %}
+    <center><h1>Administración Usuarios</h1></center>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+<!-- Estructura del módulo -->
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form>
+            <div>
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" id="name" class="form-control" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div>
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" id="password" class="form-control" placeholder="Ingresa tu contraseña" required>
+            </div>
+            <button type="submit" class="btn-warning">Entrar</button>
+        </form>
+        <a href="usuarios" class="register-link">Registrarse aquí</a>
+  </div>
+<!-- Fin Estructura módulo -->
+{% endblock %}
+<!-- Fin Contenido individual -->

@@ -7,6 +7,9 @@ def home(request):
     lstUsuarios = USUARIO.objects.all()
     return render(request, "adminUsuarios.html", {"tblUsuarios": lstUsuarios})
 
+def usuarios(request):
+    return render(request, "registro.html")
+
 # CREAR
 def registrarUsuario(request):
     if request.method == 'POST':
