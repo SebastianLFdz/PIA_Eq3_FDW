@@ -41,5 +41,5 @@ class PEDIDOS(models.Model):
 
 
     def __str__(self):
-        alumno_detalle = "{0} {1} {2} {3} {4} {5} {6} {7}"
-        return alumno_detalle.format(self.IdPedido, self.NoOrden, self.MeseroEncargado, self.Mesa, self.Platillo, self.Bebida, self.Postre, self.HoraRegistro)
+        alumno_detalle = "{0} {1} {2} {3} {4} {5} {6} {7} {8}"
+        return alumno_detalle.format(self.IdPedido, self.NoOrden, self.MeseroEncargado, self.Mesa, self.Platillo, self.Bebida, self.Postre, self.Estatus, self.HoraRegistro)
