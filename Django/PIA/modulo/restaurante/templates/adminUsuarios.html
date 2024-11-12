@@ -1,31 +1,69 @@
-<!-- Importar el diseño de la plantilla -->
+<!-- 
+    Extiende la plantilla base "plantilla.html" para reutilizar el diseño y la estructura comunes.
+-->
 {% extends "./plantilla.html" %}
 
-<!-- Cambiar titulo a la pestaña de navegación -->
+<!-- 
+    Define el título de la pestaña del navegador como "Usuarios".
+-->
 {% block title %} Usuarios {% endblock %}
 
-<!-- Contenido individual -->
+<!-- 
+    Contenido principal de la página de administración de usuarios.
+-->
 {% block body %}
-    <center><h1>Administración Usuarios</h1></center>
-
+    <!-- 
+        Incluye la hoja de estilos de Font Awesome para usar iconos en la página.
+    -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-<!-- Estructura del módulo -->
-    <div class="login-container">
-        <h2>Iniciar Sesión</h2>
-        <form>
-            <div>
-                <label for="name" class="form-label">Nombre</label>
-                <input type="text" id="name" class="form-control" placeholder="Ingresa tu nombre" required>
-            </div>
-            <div>
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" id="password" class="form-control" placeholder="Ingresa tu contraseña" required>
-            </div>
-            <button type="submit" class="btn-warning">Entrar</button>
-        </form>
-        <a href="usuarios" class="register-link">Registrarse aquí</a>
-  </div>
-<!-- Fin Estructura módulo -->
+    <!-- 
+        Contenedor principal del formulario de inicio de sesión.
+    -->
+    <center>
+        <div class="login-container">
+            <!-- 
+                Título del formulario de inicio de sesión.
+            -->
+            <h2>Iniciar Sesión</h2>
+            
+            <!-- 
+                Formulario para iniciar sesión, envía los datos al servidor usando el método POST.
+            -->
+            <form action="{% url 'iniciarsesion' %}" method="POST">
+                <!-- 
+                    Token CSRF para proteger contra ataques CSRF.
+                -->
+                {% csrf_token %}
+                
+                <!-- 
+                    Campo de entrada para el número de empleado.
+                -->
+                <div>
+                    <label for="txtNoEmpleado" class="form-label">No Empleado</label>
+                    <input type="number" id="txtNoEmpleado" name="txtNoEmpleado" class="form-control" placeholder="Ingresa tu Numero de Empleado" required>
+                </div>
+                
+                <!-- 
+                    Campo de entrada para la contraseña.
+                -->
+                <div>
+                    <label for="txtContrasena" class="form-label">Contraseña</label>
+                    <input type="password" id="txtContrasena" name="txtContrasena" class="form-control" placeholder="Ingresa tu contraseña" required>
+                </div>
+                
+                <!-- 
+                    Botón para enviar el formulario de inicio de sesión.
+                -->
+                <button type="submit" class="btn-warning mt-1">Entrar</button>
+            </form>
+            
+            <!-- 
+                Enlace para registrar un nuevo usuario.
+            -->
+            <a href="usuarios" class="register-link">Registrarse aquí</a>
+        </div>
+    </center>
 {% endblock %}
 <!-- Fin Contenido individual -->
+

@@ -1,0 +1,113 @@
+<!--
+    Este archivo define una plantilla HTML para la vista de administración de usuarios registrados.
+    Utiliza Bootstrap 4 para el diseño y estilo de la página.
+-->
+
+<!--
+    Etiqueta DOCTYPE que define el tipo de documento como HTML5.
+-->
+<!DOCTYPE html>
+
+<!--
+    Etiqueta html que define el idioma del contenido como español.
+-->
+<html lang="en">
+
+<head>
+    <!--
+        Etiqueta meta que define la codificación de caracteres como UTF-8.
+    -->
+    <meta charset="UTF-8">
+
+    <!--
+        Etiqueta meta que asegura que la página se vea bien en dispositivos móviles.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+        Etiqueta title que define el título de la página.
+    -->
+    <title>Usuarios Registrados</title>
+
+    <!--
+        Enlace a la hoja de estilos de Bootstrap 4 para el diseño de la página.
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!--
+            Encabezado principal de la página.
+        -->
+        <h1 class="mt-5">Usuarios Registrados</h1>
+
+        <!--
+            Subtítulo de la página.
+        -->
+        <h2 class="mt-3">Vista de Admin</h2>
+
+        <!--
+            Botón para regresar a la página de inicio.
+            Utiliza la etiqueta 'a' con la clase 'btn btn-primary' de Bootstrap para el estilo del botón.
+        -->
+        <a href="{% url 'home' %}" class="btn btn-primary mt-3">Volver a Inicio</a>
+
+        <!--
+            Tabla que muestra la lista de usuarios registrados.
+            Utiliza las clases 'table' y 'table-striped' de Bootstrap para el estilo de la tabla.
+        -->
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <!--
+                        Encabezados de la tabla.
+                        La columna 'Accion' tiene un colspan de 2 para abarcar dos columnas.
+                    -->
+                    <th colspan="2">Accion</th>
+                    <th>No Empleado</th>
+                    <th>Nombre</th>
+                    <th>Primer Apellido</th>
+                    <th>Segundo Apellido</th>
+                    <th>Contrasena</th>
+                    <th>Posicion</th>
+                    <th>Fecha de Registro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--
+                    Bucle for que itera sobre la lista de usuarios (tblUsuarios) y genera una fila por cada usuario.
+                -->
+                {% for usuario in tblUsuarios %}
+                <tr>
+                    <!--
+                        Botón para eliminar un usuario.
+                        Redirige a la ruta /eliminarUsuario/ con el IdUsuario correspondiente.
+                        Utiliza la clase 'btn btn-danger' de Bootstrap para el estilo del botón.
+                    -->
+                    <td><a href="/eliminarUsuario/{{usuario.IdUsuario}}" class="btn btn-danger">Eliminar</a></td>
+
+                    <!--
+                        Botón para editar un usuario.
+                        Redirige a la ruta /editarUsuario/ con el IdUsuario correspondiente.
+                        Utiliza la clase 'btn btn-warning' de Bootstrap para el estilo del botón.
+                    -->
+                    <td><a href="/editarUsuario/{{usuario.IdUsuario}}" class="btn btn-warning">Editar</a></td>
+
+                    <!--
+                        Celdas que muestran los datos del usuario.
+                    -->
+                    <td>{{ usuario.NoEmpleado }}</td>
+                    <td>{{ usuario.Nombre }}</td>
+                    <td>{{ usuario.PrimerApellido }}</td>
+                    <td>{{ usuario.SegundoApellido }}</td>
+                    <td>{{ usuario.Contrasena }}</td>
+                    <td>{{ usuario.Posicion }}</td>
+                    <td>{{ usuario.FechaRegistro }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

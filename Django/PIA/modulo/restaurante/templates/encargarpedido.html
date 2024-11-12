@@ -70,33 +70,34 @@
 </head>
 <body>
     <div class="container">
-        <h2>Formulario de Registro de Usuario</h2>
-        <form action="/registrarUsuario/" method="post">{% csrf_token %}
+        <h2>Formulario de Registro de Pedidos</h2>
+        <form action="/registrarpedido/" method="post">{% csrf_token %}
 
-            <label for="txtNoEmpleado">No Empleado</label>
-            <input type="text" id="txtNoEmpleado" name="txtNoEmpleado" minlength="1" maxlength="7" class="form-control" required>
+            <label for="txtNoOrden">No Orden</label>
+            <input type="text" id="txtNoOrden" name="txtNoOrden" minlength="1" maxlength="7" class="form-control" required>
 
-            <label for="txtNombre">Nombre</label>
-            <input type="text" id="txtNombre" name="txtNombre" minlength="1" maxlength="15" class="form-control" required>
+            <label for="txtMeseroEncargado">Mesero Encargado</label>
+            <input type="text" id="txtMeseroEncargado" name="txtMeseroEncargado" minlength="1" maxlength="15" class="form-control" required>
 
-            <label for="txtPrimerApellido">Primer Apellido</label>
-            <input type="text" id="txtPrimerApellido" name="txtPrimerApellido" minlength="1" maxlength="15" class="form-control" required>
+            <label for="txtMesa">Mesa</label>
+            <input type="text" id="txtMesa" name="txtMesa" minlength="1" maxlength="2" class="form-control" required>
 
-            <label for="txtSegundoApellido">Segundo Apellido</label>
-            <input type="text" id="txtSegundoApellido" name="txtSegundoApellido" minlength="1" maxlength="15" class="form-control" required>
+            <label for="txtPlatillo">Platillo</label>
+            <input type="text" id="txtPlatillo" name="txtPlatillo" minlength="1" maxlength="15" class="form-control" required>
 
-            <label for="txtContrasena">Contraseña</label>
-            <input type="password" id="txtContrasena" name="txtContrasena" minlength="1" maxlength="15" class="form-control" required>
+            <label for="txtBebida">Bebida</label>
+            <input type="text" id="txtBebida" name="txtBebida" minlength="1" maxlength="15" class="form-control" required>
 
-            <label for="txtPosicion">Posición</label>
-            <select id="txtPosicion" name="txtPosicion" class="form-control" required>
-                <option value="C">Cocinero</option>
-                <option value="M">Mesero</option>
-                <option value="A">Administrador</option>
+            <label for="txtPostre">Postre</label>
+            <input type="text" id="txtPostre" name="txtPostre" minlength="1" maxlength="15" class="form-control" required>
+
+            <label for="txtEstatus">Estatus</label>
+            <select id="txtEstatus" name="txtEstatus" class="form-control" required>
+                <option value="Pendiente">Pendiente</option>
             </select>
 
-            <label for="txtFechaRegistro">Fecha de Registro</label>
-            <input type="date" id="txtFechaRegistro" name="txtFechaRegistro" class="form-control" required>
+            <label for="txtHoraRegistro">Fecha de Registro</label>
+            <input type="time" id="txtHoraRegistro" name="txtHoraRegistro" class="form-control" required>
 
             <div class="row mt-1">
                 <div class="col-md-6">

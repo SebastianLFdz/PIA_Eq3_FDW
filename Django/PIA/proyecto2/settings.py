@@ -81,12 +81,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": "BDUSUARIO.db",
-    },
-
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "BDPEDIDOS.db",
-    },
+    }
 }
 
 

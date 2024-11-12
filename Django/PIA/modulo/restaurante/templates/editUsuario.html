@@ -1,0 +1,117 @@
+<!-- 
+    Extiende la plantilla base "plantilla.html" para mantener un diseño consistente en todas las páginas.
+-->
+{% extends "./plantilla.html" %}
+
+<!-- 
+    Cambia el título de la pestaña del navegador a "Alumno".
+-->
+{% block title %} Alumno {% endblock %}
+
+{% block body %}
+<center>
+    <div class="col-md-5">
+        <!-- 
+            Título del formulario con un icono de usuario.
+        -->
+        <h4 class="text-primary"><i class="fa-solid fa-user"></i> Editar Informacion </h4>
+        <div class="card">
+            <div class="card-body">
+                <!-- 
+                    Formulario para editar la información del usuario. 
+                    La acción del formulario envía los datos a la URL "/leerUsuario/" usando el método POST.
+                -->
+                <form action="/leerUsuario/" method="post">{% csrf_token %}
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <!-- 
+                                    Campo de entrada para el ID del usuario. 
+                                    Es de solo lectura y obligatorio.
+                                -->
+                                <label for="txtId">ID</label>
+                                <input id="txtId" name="txtId" value="{{usuario.IdUsuario}}" type="number" minlength="1" maxlength="10" class="form-control" required readonly>
+                            </div>
+                            <div class="col-md-12">
+                                <!-- 
+                                    Campo de entrada para la matrícula del usuario. 
+                                    Es obligatorio y debe tener exactamente 7 dígitos.
+                                -->
+                                <label for="txtNoEmpleado">Matricula</label>
+                                <input id="txtNoEmpleado" name="txtNoEmpleado" value="{{usuario.NoEmpleado}}" type="number" minlength="7" maxlength="7" class="form-control" required>
+                            </div>
+                            <div class="col-md-12">
+                                <!-- 
+                                    Campo de entrada para el nombre del usuario. 
+                                    Es obligatorio y tiene un límite de 50 caracteres.
+                                -->
+                                <label for="txtNombre">Nombre</label>
+                                <input id="txtNombre" name="txtNombre" value="{{usuario.Nombre}}" type="text" minlength="1" maxlength="50" class="form-control" required>
+                            </div>
+                            <div class="col-md-12">
+                                <!-- 
+                                    Campo de entrada para el primer apellido del usuario. 
+                                    Es obligatorio y tiene un límite de 50 caracteres.
+                                -->
+                                <label for="txtPrimerApellido">Primer Apellido</label>
+                                <input id="txtPrimerApellido" name="txtPrimerApellido" value="{{usuario.PrimerApellido}}" type="text" minlength="1" maxlength="50" class="form-control" required>
+                            </div>
+                            <div class="col-md-12">
+                                <!-- 
+                                    Campo de entrada para el segundo apellido del usuario. 
+                                    Es obligatorio y tiene un límite de 50 caracteres.
+                                -->
+                                <label for="txtSegundoApellido">Segundo Apellido</label>
+                                <input id="txtSegundoApellido" name="txtSegundoApellido" value="{{usuario.SegundoApellido}}" type="text" minlength="1" maxlength="50" class="form-control" required>
+                            </div>
+                            <div class="col-md-12">
+                                <!-- 
+                                    Campo de entrada para la contraseña del usuario. 
+                                    Es obligatorio y tiene un límite de 50 caracteres.
+                                -->
+                                <label for="txtContrasena">Contraseña</label>
+                                <input id="txtContrasena" name="txtContrasena" value="{{usuario.Contrasena}}" type="password" minlength="1" maxlength="50" class="form-control" required>
+                            </div>
+                            <div>
+                                <!-- 
+                                    Menú desplegable para seleccionar la posición del usuario. 
+                                    Es obligatorio.
+                                -->
+                                <label for="txtPosicion">Posición</label>
+                                <select id="txtPosicion" name="txtPosicion" class="form-control" required>
+                                    <option value="C">Cocinero</option>
+                                    <option value="M">Mesero</option>
+                                    <option value="A">Administrador</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <!-- 
+                                    Campo de entrada para la fecha de nacimiento del usuario. 
+                                    Es obligatorio y se muestra en formato de fecha.
+                                -->
+                                <label for="txtFechaRegistro">Fecha de Nacimiento</label>
+                                <input type="date" name="txtFechaRegistro" value="{{usuario.FechaRegistro|date:'Y-m-d'}}" id="txtFechaRegistro" class="form-control" required>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-md-6">
+                                    <!-- 
+                                        Botón para enviar el formulario y editar la información del usuario.
+                                    -->
+                                    <button type="submit" class="btn btn-success w-100">EDITAR</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- 
+                                        Botón para restablecer el formulario a sus valores iniciales.
+                                    -->
+                                    <button type="reset" class="btn btn-danger w-100">CANCELAR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</center>
+{% endblock %}
+<!-- Fin Contenido principal -->
